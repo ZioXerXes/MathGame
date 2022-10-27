@@ -11,4 +11,10 @@ $(document).ready(function(){
   console.log(a)
   console.log(b)
   console.log(answer)
+
+  $('#answer').on('submit', function (event) {
+    event.preventDefault();
+    var cleanAnswer = parseInt($(this).children('[name=userAnswer]').val());
+    console.log(cleanAnswer);
+  })
 });
