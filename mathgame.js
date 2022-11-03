@@ -1,42 +1,128 @@
-var questionGen = function (activeOperator) {
+var questionGen = function (activeOperator, activeLimit) {
   console.log(activeOperator + 'questionGen')
   if (activeOperator == '+') {
   console.log('questionGenAdd Triggered');
-  var a = Math.floor(Math.random()*10)
-  var b = Math.floor(Math.random()*10)
-  return a + '+' + b
+  if (activeLimit == 10) {
+    var a = Math.floor(Math.random()*10)
+    var b = Math.floor(Math.random()*10)
+    return a + '+' + b
+  } else if (activeLimit == 25) {
+    var a = Math.floor(Math.random()*25)
+    var b = Math.floor(Math.random()*25)
+    return a + '+' + b
+  } else if (activeLimit == 50) {
+    var a = Math.floor(Math.random()*50)
+    var b = Math.floor(Math.random()*50)
+    return a + '+' + b
+  } else if (activeLimit == 100) {
+    var a = Math.floor(Math.random()*100)
+    var b = Math.floor(Math.random()*100)
+    return a + '+' + b
+  }
   } else if (activeOperator == '-') {
   console.log('questionGenSubtract Triggered');
-  var a = Math.floor(Math.random()*10)
-  var b = Math.floor(Math.random()*10)
-  while (eval(a + '-' + b) < 0) {
-    a = Math.floor(Math.random()*10);
-    b = Math.floor(Math.random()*10);
-    console.log('Here goes');
-  }
-  return a + '-' + b;
-  } else if (activeOperator == 'x') {
+  if (activeLimit == 10) {
     var a = Math.floor(Math.random()*10)
     var b = Math.floor(Math.random()*10)
-    return a + '*' + b;
-  } else if (activeOperator == '/') {
-    var a = Math.floor(Math.random()*10)
-    var b = Math.floor(Math.random()*10)
-    while (eval(a + '/' + b) < 0 || !Number.isInteger(eval(a + '/' + b))) {
+    while (eval(a + '-' + b) < 0) {
       a = Math.floor(Math.random()*10);
       b = Math.floor(Math.random()*10);
       console.log('Here goes');
     }
-    return a + '/' + b;
+    return a + '-' + b
+  } else if (activeLimit == 25) {
+    var a = Math.floor(Math.random()*25)
+    var b = Math.floor(Math.random()*25)
+    while (eval(a + '-' + b) < 0) {
+      a = Math.floor(Math.random()*25);
+      b = Math.floor(Math.random()*25);
+      console.log('Here goes');
+    }
+    return a + '-' + b;
+  } else if (activeLimit == 50) {
+    var a = Math.floor(Math.random()*50)
+    var b = Math.floor(Math.random()*50)
+    while (eval(a + '-' + b) < 0) {
+      a = Math.floor(Math.random()*50);
+      b = Math.floor(Math.random()*50);
+      console.log('Here goes');
+    }
+    return a + '-' + b;
+  } else if (activeLimit == 100) {
+    var a = Math.floor(Math.random()*100)
+    var b = Math.floor(Math.random()*100)
+    while (eval(a + '-' + b) < 0) {
+      a = Math.floor(Math.random()*100);
+      b = Math.floor(Math.random()*100);
+      console.log('Here goes');
+    }
+    return a + '-' + b;
   }
+  } else if (activeOperator == 'x') {
+    if (activeLimit == 10) {
+      var a = Math.floor(Math.random()*10)
+      var b = Math.floor(Math.random()*10)
+      return a + '*' + b
+    } else if (activeLimit == 25) {
+      var a = Math.floor(Math.random()*25)
+      var b = Math.floor(Math.random()*25)
+      return a + '*' + b
+    } else if (activeLimit == 50) {
+      var a = Math.floor(Math.random()*50)
+      var b = Math.floor(Math.random()*50)
+      return a + '*' + b
+    } else if (activeLimit == 100) {
+      var a = Math.floor(Math.random()*100)
+      var b = Math.floor(Math.random()*100)
+      return a + '*' + b
+    }
+  } else if (activeOperator == '/') {
+    if (activeLimit == 10) {
+      var a = Math.floor(Math.random()*10)
+      var b = Math.floor(Math.random()*10)
+      while (eval(a + '/' + b) < 0 || !Number.isInteger(eval(a + '/' + b))) {
+        a = Math.floor(Math.random()*10);
+        b = Math.floor(Math.random()*10);
+        console.log('Here goes');
+      }
+      return a + '/' + b
+    } else if (activeLimit == 25) {
+      var a = Math.floor(Math.random()*25)
+      var b = Math.floor(Math.random()*25)
+      while (eval(a + '/' + b) < 0 || !Number.isInteger(eval(a + '/' + b))) {
+        a = Math.floor(Math.random()*25);
+        b = Math.floor(Math.random()*25);
+        console.log('Here goes');
+      }
+      return a + '/' + b;
+    } else if (activeLimit == 50) {
+      var a = Math.floor(Math.random()*50)
+      var b = Math.floor(Math.random()*50)
+      while (eval(a + '/' + b) < 0 || !Number.isInteger(eval(a + '/' + b))) {
+        a = Math.floor(Math.random()*50);
+        b = Math.floor(Math.random()*50);
+        console.log('Here goes');
+      }
+      return a + '/' + b;
+    } else if (activeLimit == 100) {
+      var a = Math.floor(Math.random()*100)
+      var b = Math.floor(Math.random()*100)
+      while (eval(a + '/' + b) < 0 || !Number.isInteger(eval(a + '/' + b))) {
+        a = Math.floor(Math.random()*100);
+        b = Math.floor(Math.random()*100);
+        console.log('Here goes');
+      }
+      return a + '/' + b;  }
+  };
 };
 
-var newProblem = function (activeOperator) {
+var newProblem = function (activeOperator, activeLimit) {
   console.log("newProblem Triggered")
   console.log(activeOperator + "newPorblem")
+  console.log(activeLimit + "newProblem")
   $('.question').empty();
   var operationNow = '';
-  var answerBox = $('.question').append('<p>' + questionGen(activeOperator) + '</p>').children('p')
+  var answerBox = $('.question').append('<p>' + questionGen(activeOperator, activeLimit) + '</p>').children('p')
   var squisher = eval(answerBox.html());
   console.log('Squisher = ' + squisher)
   return squisher;
@@ -45,6 +131,7 @@ var newProblem = function (activeOperator) {
 
 $(document).ready(function(){
   var activeOperator = '';
+  var activeLimit = '';
   $('.operation').click(function(event){
     $(this).addClass('enabled')
     if ($(this).siblings().hasClass('enabled')) {
@@ -54,7 +141,15 @@ $(document).ready(function(){
     activeOperator = $(this).html();
     console.log(activeOperator)
   });
-  
+  $('.limit').click(function(event){
+    $(this).addClass('enabledLimit');
+    if ($(this).siblings().hasClass('enabledLimit')) {
+      $(this).siblings().removeClass('enabledLimit');
+      console.log('Limit should be removed');
+    }
+    activeLimit = parseInt($(this).html());
+    console.log(activeLimit);
+  })
   var timerSpan = document.body.querySelector("#timer");
   var seconds = 10;
   var scoreKeeper = 0;
@@ -79,9 +174,12 @@ $(document).ready(function(){
   
 
   $('#starter').on('click', function (event) {
-    console.log(activeOperator)
+    console.log(activeLimit)
     if (!activeOperator) {
       return alert("Choose an operator!")
+    }
+    if (!activeLimit) {
+      return alert("Choose a limit!")
     }
     console.log("Starter triggered");
     event.preventDefault();
@@ -92,7 +190,7 @@ $(document).ready(function(){
       $('#answer').children('input').prop('disabled', false);
     };
     startTimer();
-    newProblem(activeOperator);
+    newProblem(activeOperator, activeLimit);
   })
 
   $('#answer').on('submit', function (event) {
@@ -113,7 +211,7 @@ $(document).ready(function(){
       seconds += 1;
       inputSelector.val('')
       $('.question').empty();
-      return newProblem(activeOperator)
+      return newProblem(activeOperator, activeLimit)
     } else {
       console.log('You suck!');
       $('.fate').empty();
