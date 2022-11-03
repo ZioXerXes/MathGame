@@ -21,6 +21,7 @@ $(document).ready(function(){
 
   var timerSpan = document.body.querySelector("#timer");
   var seconds = 10;
+  var scoreKeeper = 0;
 
   var startTimer = function () {
     //seconds = 10;
@@ -44,6 +45,8 @@ $(document).ready(function(){
   $('#starter').on('click', function (event) {
     console.log("Starter triggered");
     event.preventDefault();
+    scoreKeeper=0;
+    $('#scoreHole').html(scoreKeeper);
     seconds=10;
     if ($('#answer').children('input').prop('disabled', true)) {
       $('#answer').children('input').prop('disabled', false);
@@ -58,7 +61,6 @@ $(document).ready(function(){
     inputSelector = $(this).children('[name=userAnswer]');
     var cleanAnswer = parseInt(inputSelector.val());
     console.log(cleanAnswer)
-
     $.answerHole = eval($('.question').children('p').html())
 
     console.log('answerHole = ' + $.answerHole)
@@ -66,6 +68,8 @@ $(document).ready(function(){
       console.log('You did it!');
       $('.fate').empty();
       $('.fate').append('<p>You did it!</p>');
+      scoreKeeper += 1;
+      $('#scoreHole').html(scoreKeeper);
       seconds += 1;
       inputSelector.val('')
       $('.question').empty();
