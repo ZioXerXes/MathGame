@@ -1,16 +1,29 @@
-
-var questionGen = function () {
-  console.log('questionGen Triggered');
+var questionGen = function (activeOperator) {
+  console.log(activeOperator + 'questionGen')
+  if (activeOperator == '+') {
+  console.log('questionGenAdd Triggered');
   var a = Math.floor(Math.random()*10)
   var b = Math.floor(Math.random()*10)
   return a + '+' + b
-}
+  } else if (activeOperator == '-') {
+  console.log('questionGenSubtract Triggered');
+  var a = Math.floor(Math.random()*10)
+  var b = Math.floor(Math.random()*10)
+  while (eval(a + '-' + b) < 0) {
+    a = Math.floor(Math.random()*10);
+    b = Math.floor(Math.random()*10);
+    console.log('Here goes');
+  }
+  return a + '-' + b;
+};
+};
 
-
-var newProblem = function () {
+var newProblem = function (activeOperator) {
   console.log("newProblem Triggered")
+  console.log(activeOperator + "newPorblem")
   $('.question').empty();
-  var answerBox = $('.question').append('<p>' + questionGen() + '</p>').children('p')
+  var operationNow = '';
+  var answerBox = $('.question').append('<p>' + questionGen(activeOperator) + '</p>').children('p')
   var squisher = eval(answerBox.html());
   console.log('Squisher = ' + squisher)
   return squisher;
@@ -18,7 +31,17 @@ var newProblem = function () {
 
 
 $(document).ready(function(){
-
+  var activeOperator = '';
+  $('.operation').click(function(event){
+    $(this).addClass('enabled')
+    if ($(this).siblings().hasClass('enabled')) {
+      $(this).siblings().removeClass('enabled');
+      console.log('Class should be removed')
+    };
+    activeOperator = $(this).html();
+    console.log(activeOperator)
+  });
+  
   var timerSpan = document.body.querySelector("#timer");
   var seconds = 10;
   var scoreKeeper = 0;
@@ -43,6 +66,10 @@ $(document).ready(function(){
   
 
   $('#starter').on('click', function (event) {
+    console.log(activeOperator)
+    if (!activeOperator) {
+      return alert("Choose an operator!")
+    }
     console.log("Starter triggered");
     event.preventDefault();
     scoreKeeper=0;
@@ -52,7 +79,7 @@ $(document).ready(function(){
       $('#answer').children('input').prop('disabled', false);
     };
     startTimer();
-    newProblem();
+    newProblem(activeOperator);
   })
 
   $('#answer').on('submit', function (event) {
@@ -73,11 +100,11 @@ $(document).ready(function(){
       seconds += 1;
       inputSelector.val('')
       $('.question').empty();
-      return newProblem()
+      return newProblem(activeOperator)
     } else {
       console.log('You suck!');
       $('.fate').empty();
-      $('.fate').append('<p>You suck!</p>');
+      $('.fate').append('<p>Incorrect. Please try again! Good luck!</p>');
       inputSelector.val('')
     }
   })
