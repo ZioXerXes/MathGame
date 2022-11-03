@@ -15,7 +15,20 @@ var questionGen = function (activeOperator) {
     console.log('Here goes');
   }
   return a + '-' + b;
-};
+  } else if (activeOperator == 'x') {
+    var a = Math.floor(Math.random()*10)
+    var b = Math.floor(Math.random()*10)
+    return a + '*' + b;
+  } else if (activeOperator == '/') {
+    var a = Math.floor(Math.random()*10)
+    var b = Math.floor(Math.random()*10)
+    while (eval(a + '/' + b) < 0 || !Number.isInteger(eval(a + '/' + b))) {
+      a = Math.floor(Math.random()*10);
+      b = Math.floor(Math.random()*10);
+      console.log('Here goes');
+    }
+    return a + '/' + b;
+  }
 };
 
 var newProblem = function (activeOperator) {
