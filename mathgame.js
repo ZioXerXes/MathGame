@@ -20,32 +20,34 @@ var newProblem = function () {
 $(document).ready(function(){
 
   var timerSpan = document.body.querySelector("#timer");
-  var milliseconds = 1000;
-  var timer = null;
-  
-  var stopTimer = function () {
-    window.clearInterval(timer);
-    timer = null;
-    milliseconds = 1000;
-  };
+  var seconds = 10;
 
   var startTimer = function () {
-    if (!timer) {
-      timer = setInterval(function () {
-        timerSpan.innerHTML = --milliseconds;
-        if (milliseconds === 0) {
-          console.log('WOAH!')
-          //document.getElementById('timer').innerHTML = '<span>0</span>';
-          stopTimer();
-        }
-      }, 1);
+    //seconds = 10;
+    const interval = setInterval(() => {
+      console.log(seconds);
+      //timerSpan.innerHTML = seconds;
+      seconds--;
+      timerSpan.innerHTML = seconds;
+      if (seconds < 0) {
+        console.log('WOAH!')
+        timerSpan.innerHTML = 'GAME OVER'
+        $('#answer').children('input').prop('disabled', true);
+        clearInterval(interval);
+        //document.getElementById('timer').innerHTML = '<span>0</span>';
+        //stopTimer();
       }
-    };
+    }, 1000);
+  };
   
 
   $('#starter').on('click', function (event) {
     console.log("Starter triggered");
     event.preventDefault();
+    seconds=10;
+    if ($('#answer').children('input').prop('disabled', true)) {
+      $('#answer').children('input').prop('disabled', false);
+    };
     startTimer();
     newProblem();
   })
@@ -61,11 +63,10 @@ $(document).ready(function(){
 
     console.log('answerHole = ' + $.answerHole)
     if (cleanAnswer == $.answerHole) {
-      console.log(milliseconds.charAt[0])
       console.log('You did it!');
       $('.fate').empty();
       $('.fate').append('<p>You did it!</p>');
-      milliseconds += 100;
+      seconds += 1;
       inputSelector.val('')
       $('.question').empty();
       return newProblem()
