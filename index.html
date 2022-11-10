@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="mathgamepretty.css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/cave-story" type="text/css"/>
     <script type="text/javascript" src="mathgame.js"></script>
   </head>
   <body>
@@ -15,11 +16,13 @@
     </div>
     <div class="theGame">
       <div class="question">
+        <p>Prepare yourself...</p>
       </div>
       <div class="fate">
+        <p>...if you dare!</p>
       </div>
       <form id="answer">
-        <input name="userAnswer" type="number" placeholder="Answer" required />
+        <input id="answerBox" name="userAnswer" placeholder="TYPE ANSWER" required />
       </form>
       <div id="operationBox">
         <button class="operation">+</button>
@@ -35,8 +38,8 @@
       </div>
       <button id="starter" placeholder="Start game">Start Game</button>
       <p><span id="timer">10</span></p>
-      <p id="scoreHole"></p>
-      <p id="highScore"></p>
+      <p>SCORE: <span id="scoreHole">0</span></p>
+      <p>HIGH SCORE: <span id="highScore">0</span></p>
     </div>
   </body>
 </html>

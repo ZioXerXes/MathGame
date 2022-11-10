@@ -207,7 +207,7 @@ $(document).ready(function(){
 
     console.log('answerHole = ' + $.answerHole)
     if (cleanAnswer == $.answerHole) {
-      console.log('You did it!');
+      console.log('CORRECT!');
       $('.fate').empty();
       $('.fate').append('<p>You did it!</p>');
       scoreKeeper += 1;

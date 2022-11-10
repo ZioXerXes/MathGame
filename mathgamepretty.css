@@ -1,4 +1,40 @@
+
+
+button, #answerBox {
+  background-color: black;
+  color: greenyellow;
+  font-family: 'CaveStoryRegular';
+  font-size: 50px;
+  text-align: center;
+  margin: 10px 10px;
+
+}
+
 button.enabled, button.enabledLimit {
-  background-color: #4CAF50;
-  color: #4CAF50;
+  outline: 5px solid yellowgreen;
+}
+
+#starter, #answerBox {
+  outline: 5px solid yellowgreen;
+  margin: 10px 10px;
+}
+
+
+
+input:focus {
+  outline: none;
+}
+
+body {
+  background-color: black;
+  text-align: center;
+}
+
+p, h1 {
+  font-family: 'CaveStoryRegular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 50px;
+  color: greenyellow;
+  text-align: center;
 }
