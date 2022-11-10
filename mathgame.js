@@ -153,6 +153,7 @@ $(document).ready(function(){
   var timerSpan = document.body.querySelector("#timer");
   var seconds = 10;
   var scoreKeeper = 0;
+  var highScore = 0;
 
   var startTimer = function () {
     //seconds = 10;
@@ -164,10 +165,13 @@ $(document).ready(function(){
       if (seconds < 0) {
         console.log('WOAH!')
         timerSpan.innerHTML = 'GAME OVER'
+        console.log(scoreKeeper + "THis is startTimer score")
+        if (scoreKeeper > highScore) {
+          highScore = scoreKeeper;
+          $("#highScore").html(scoreKeeper)
+        }
         $('#answer').children('input').prop('disabled', true);
         clearInterval(interval);
-        //document.getElementById('timer').innerHTML = '<span>0</span>';
-        //stopTimer();
       }
     }, 1000);
   };
