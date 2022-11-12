@@ -138,6 +138,10 @@ $(document).ready(function(){
       $(this).siblings().removeClass('enabled');
       console.log('Class should be removed')
     };
+    if ($(".limit").hasClass("enabledLimit")) {
+      $("#starter").css("display", "inline-block")
+      $("#answer").css("display", "inline-block")
+    }
     activeOperator = $(this).html();
     console.log(activeOperator)
   });
@@ -149,6 +153,10 @@ $(document).ready(function(){
     }
     activeLimit = parseInt($(this).html());
     console.log(activeLimit);
+    if ($(".operation").hasClass("enabled")) {
+      $("#starter").css("display", "inline-block");
+      $("#answer").css("display", "block")
+    }
   })
   var timerSpan = document.body.querySelector("#timer");
   var seconds = 10;
@@ -165,6 +173,8 @@ $(document).ready(function(){
       if (seconds < 0) {
         console.log('WOAH!')
         timerSpan.innerHTML = 'GAME OVER'
+        $('.fate').empty();
+        $('.fate').append("<p>GAME OVER</p>")
         console.log(scoreKeeper + "THis is startTimer score")
         if (scoreKeeper > highScore) {
           highScore = scoreKeeper;
@@ -219,7 +229,7 @@ $(document).ready(function(){
     } else {
       console.log('You suck!');
       $('.fate').empty();
-      $('.fate').append('<p>Incorrect. Please try again! Good luck!</p>');
+      $('.fate').append('<p>Incorrect!</p>');
       inputSelector.val('')
     }
   })

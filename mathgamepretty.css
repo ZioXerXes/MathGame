@@ -1,4 +1,6 @@
-
+#bottomBar {
+  margin-top: 25px;
+}
 
 button, #answerBox {
   background-color: black;
@@ -6,8 +8,6 @@ button, #answerBox {
   font-family: 'CaveStoryRegular';
   font-size: 50px;
   text-align: center;
-  margin: 10px 10px;
-
 }
 
 button.enabled, button.enabledLimit {
@@ -19,7 +19,14 @@ button.enabled, button.enabledLimit {
   margin: 10px 10px;
 }
 
+#header {
+  outline: 5px dotted yellowgreen;
+}
 
+.topHead {
+  align-content: center;
+  margin: 0 0 -40px 0;
+}
 
 input:focus {
   outline: none;
@@ -37,4 +44,16 @@ p, h1 {
   font-size: 50px;
   color: greenyellow;
   text-align: center;
+}
+
+.operation, .limit {
+  display: inline-block;
+}
+
+#middleBar {
+  display: inline-block;
+}
+
+#starter, #answer {
+  display: none;
 }
