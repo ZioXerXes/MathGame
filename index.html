@@ -30,8 +30,8 @@
       </div>
     </div>
     
-    <div class="container">
-      <div class="row" id="middleBar">
+    <div class="container" id="middleBar">
+      <div class="row">
         
         <div id="gameChooser" class="col-xs-4">
           <div id="operationBox" class="row">
@@ -39,28 +39,25 @@
             <button class="col operation">-</button>
             <button class="col operation">x</button>
             <button class="col operation">/</button>
-            <p class="col operation">&#9756;</p>
+            <p class="col operation icon">&#9756;</p>
           </div>
         </div>
     
 
         <div id="titleGame" class="col-xs-4">
-          <div id="header">
-            <p>CHOOSE THINE ENEMIES, MATH WARRIOR!</p>
-          </div>
+
           <div class="theGame">
-            <div class="question">
-              <p>  </p>
-            </div>
-            <div class="fate">
-              <p>  </p>
+            <div class="instructions">
+              <p>CHOOSE THINE ENEMIES, MATH WARRIOR!
+              </p>
+              <p>EACH FOE THOU SLAYETH FREEZES TIME +1 SECOND</p>
             </div>
           </div>
         </div>
 
         <div class="col-xs-4">
           <div id="numberLimit" class="row">
-            <p class="col-2 limit">&#9758;</p>
+            <p class="col-2 limit icon">&#9758;</p>
             <button class="limit col-2">10</button>
             <button class="limit col-2">25</button>
             <button class="limit col-2">50</button>
@@ -71,14 +68,32 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row" id="bottomBar">
-        <div class="col-xs-12">
+    <div class="container" id="lowerMiddle">
+      <div class="row">
+        <div id="titleGame" class="col-xs-12">
+
+          <div class="theGame">
+            <div class="question">
+
+            </div>
+            <div class="fate">
+              <p>  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="container" id="bottomBar">
+      <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
           <button id="starter" placeholder="Start game">Start Game</button>
           <form id="answer">
             <input id="answerBox" name="userAnswer" placeholder="TYPE ANSWER" required />
           </form>
         </div>
+        <div class="col-xs-3"></div>
       </div>
     </div>
 

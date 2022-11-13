@@ -1,5 +1,24 @@
+body, html {
+  height: 100%;
+}
+
 #bottomBar {
-  margin-top: 25px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#middleBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#lowerMiddle {
+  margin-top: 40px;
 }
 
 button, #answerBox {
@@ -19,8 +38,16 @@ button.enabled, button.enabledLimit {
   margin: 10px 10px;
 }
 
-#header {
+.instructions>p {
   outline: 5px dotted yellowgreen;
+  font-size: 40px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+#theQuestion {
+  font-size: 80px;
+  letter-spacing: 15px;
 }
 
 .topHead {
@@ -56,4 +83,9 @@ p, h1 {
 
 #starter, #answer {
   display: none;
+}
+
+.icon {
+  margin-left: 5px;
+  margin-right: 5px;
 }

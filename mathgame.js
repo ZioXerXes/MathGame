@@ -122,14 +122,14 @@ var newProblem = function (activeOperator, activeLimit) {
   console.log(activeLimit + "newProblem")
   $('.question').empty();
   var operationNow = '';
-  var answerBox = $('.question').append('<p>' + questionGen(activeOperator, activeLimit) + '</p>').children('p')
+  var answerBox = $('.question').append('<p id="theQuestion">' + questionGen(activeOperator, activeLimit) + '</p>').children('p')
   var squisher = eval(answerBox.html());
   console.log('Squisher = ' + squisher)
   return squisher;
 };
 
-
 $(document).ready(function(){
+
   var activeOperator = '';
   var activeLimit = '';
   $('.operation').click(function(event){
@@ -165,6 +165,7 @@ $(document).ready(function(){
 
   var startTimer = function () {
     //seconds = 10;
+    $("input").focus();
     const interval = setInterval(() => {
       console.log(seconds);
       //timerSpan.innerHTML = seconds;
@@ -175,6 +176,7 @@ $(document).ready(function(){
         timerSpan.innerHTML = 'GAME OVER'
         $('.fate').empty();
         $('.fate').append("<p>GAME OVER</p>")
+        $('#answerBox').css("display", "none");
         console.log(scoreKeeper + "THis is startTimer score")
         if (scoreKeeper > highScore) {
           highScore = scoreKeeper;
@@ -189,6 +191,8 @@ $(document).ready(function(){
 
   $('#starter').on('click', function (event) {
     console.log(activeLimit)
+    $('.fate').empty();
+    $('.instructions').empty();
     if (!activeOperator) {
       return alert("Choose an operator!")
     }
@@ -200,6 +204,7 @@ $(document).ready(function(){
     scoreKeeper=0;
     $('#scoreHole').html(scoreKeeper);
     seconds=10;
+    $('#answerBox').css("display", "inline-block");
     if ($('#answer').children('input').prop('disabled', true)) {
       $('#answer').children('input').prop('disabled', false);
     };
